@@ -1,3 +1,9 @@
+This is an Clothing Store app
+
+### Using SCSS for styling
+SCSS :-  stands for 'Syntactically awesome style sheets) is an extension of CSS that enables you to use things like variables, nested rules, inline imports and more.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
