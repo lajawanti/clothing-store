@@ -1,6 +1,8 @@
 import React from 'react';
 
 import './collection-preview.style.scss';
+import '../collection-item/collection-item.component.jsx';
+import CollectionItem from '../collection-item/collection-item.component.jsx';
 
 const CollectionPreview = ({ title, items }) => {
     return (
@@ -8,10 +10,8 @@ const CollectionPreview = ({ title, items }) => {
             <h1 className = 'title'>{ title.toUpperCase() }</h1>
             <div className = 'preview'>
                 {
-                    items.map((item) =>(
-                        <div key = { item.id }> 
-                            {item.name}
-                        </div>
+                    items.filter((item, idx) => idx < 4).map(({id, ...otherItemProps}) =>(
+                        <CollectionItem key = {id} {...otherItemProps}/>
                     ))
                 }
             </div>
