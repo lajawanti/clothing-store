@@ -16,12 +16,30 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-      this. unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
         // this.setState({ currentUser : user});
         // console.log(user);
-        createUserProfileDocument(user);
+        if(userAuth) {
+            //createUserProfileDocument() function returns userRef (firebase.utils.js)
+            const userRef = await createUserProfileDocument(userAuth); 
+
+            userRef.onSnapshot(snapShot => {
+                this.setState({
+                    currentUser: {
+                        id: snapShot.id,
+                        ...snapShot.data()
+                    }
+                },
+                () => {
+                  console.log(this.state);
+                });
+            });
+        }
+
+        this.setState({ currentUser: userAuth });
       })
   }
+
 
   componentWillUnmount() {
       this.unsubscribeFromAuth();
