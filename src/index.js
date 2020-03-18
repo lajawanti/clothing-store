@@ -5,11 +5,11 @@ import './index.css';
 import App from './App';
 
 import { Provider } from 'react-redux';
-
+import store from './redux/store.js'
 
 ReactDOM.render(
     //Provider is an parent component from react-redux which will allow App access to store 
-    <Provider>
+    <Provider store = {store}>
         <BrowserRouter>
             <App />
         </BrowserRouter>
