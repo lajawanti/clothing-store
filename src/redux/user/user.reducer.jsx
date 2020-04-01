@@ -1,7 +1,7 @@
 //All related to user will go in user reducer
 // Reducer is just a function which will get prevState and action
 //here userReducer is a Reducer function
-import { UserActionTypes } from './user.types.jsx'
+import { UserActionTypes } from './user.types'
 
 const INITIAL_STATE = {
     currentUser: null
