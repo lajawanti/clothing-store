@@ -43,7 +43,7 @@ const Header = ({ currentUser, hidden }) => (
 // const mapStateToProps = state => ({
 //     currentUser: state.user.currentUser
 // })   USING DESTRUCTURING.............. 
-const mapStateToProps = (state) => ({
+const mapStateToProps =  createStructuredSelector({
     currentUser :selectCurrentUser,
     hidden: selectCartHidden
 });
